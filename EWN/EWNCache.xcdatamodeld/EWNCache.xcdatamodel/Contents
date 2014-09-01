@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="12F45" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Category_Items" representedClassName="Category" syncable="YES">
+        <attribute name="categoryId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="categoryIndex" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="categoryName" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="CommentReplies" representedClassName="CommentReplies" syncable="YES">
+        <attribute name="commentId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="commentLikes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="postedDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reported" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="comment" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Comments" syncable="YES"/>
+    </entity>
+    <entity name="Comments" representedClassName="Comments" syncable="YES">
+        <attribute name="commentId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="commentLikes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="postedDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reported" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="commentReplies" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Comments" inverseName="commentReplies" inverseEntity="Comments" syncable="YES"/>
+    </entity>
+    <entity name="ContentContents" representedClassName="ContentContents" syncable="YES">
+        <attribute name="childArticleId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="parentArticleId" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Contents" representedClassName="Contents" syncable="YES">
+        <attribute name="articleID" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="attachedMedia" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="bodyText" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="caption" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="captionShort" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cartoon" optional="YES" attributeType="Boolean" defaultValueString="0" syncable="YES"/>
+        <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="categoryName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="contentIndex" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="contentTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="contentType" optional="YES" attributeType="String" indexed="YES" versionHashModifier="2" syncable="YES"/>
+        <attribute name="contentURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dateAdded" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="featuredImageFile" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="featuredImageUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="featuredImageUrlData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="filename" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="flvOnly" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="hashtag" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageLargeURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="inFocusId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="introParagraph" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isBreakingNews" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isLeadStory" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="peopleAlsoRead" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="postRoll" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="preRoll" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="publishDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumbnilImageFile" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumbnilImageUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumbnilImageUrlData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <compoundIndexes>
+            <compoundIndex>
+                <index value="articleID"/>
+                <index value="contentType"/>
+            </compoundIndex>
+        </compoundIndexes>
+    </entity>
+    <entity name="InFocus_Items" representedClassName="InFocus_Items" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageLargeUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageThumbnailUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="LeadingNews" syncable="YES">
+        <attribute name="articleID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="attachedMedia" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="bodyText" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="caption" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="captionShort" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cartoon" optional="YES" attributeType="Boolean" defaultValueString="0" syncable="YES"/>
+        <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="categoryName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="contentIndex" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="contentTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="contentType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="contentURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dateAdded" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="featuredImageFile" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="featuredImageUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="featuredImageUrlData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="filename" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="flvOnly" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="hashtag" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageLargeURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="introParagraph" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isBreakingNews" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isLeadStory" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="peopleAlsoRead" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="postRoll" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="preRoll" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="publishDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumbnilImageFile" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumbnilImageUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumbnilImageUrlData" optional="YES" attributeType="Binary" syncable="YES"/>
+    </entity>
+    <entity name="MasterContentCategory" representedClassName="MasterContentCategory" syncable="YES">
+        <attribute name="categoryID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="contentID" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="RelatedStoryAndTimeline" representedClassName="RelatedStory" syncable="YES">
+        <attribute name="articleID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="articleType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="attachedMedia" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="bodyText" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="caption" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="captionShort" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cartoon" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="categoryName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="contentTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="contentType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dateAdded" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dateCreated" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="featuredImageFile" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="featuredImageUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="featuredImageUrlData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="filename" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="flvOnly" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="hashtag" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageLargeURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="introParagraph" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isBreakingNews" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isLeadStory" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="parentID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="peopleAlsoRead" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="postRoll" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="preRoll" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="publishDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="relatedStoryURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="storyIndex" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="thumbnilImageFile" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumbnilImageUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumbnilImageUrlData" optional="YES" attributeType="Binary" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Category_Items" positionX="-144" positionY="9" width="128" height="90"/>
+        <element name="CommentReplies" positionX="72" positionY="155" width="128" height="178"/>
+        <element name="Comments" positionX="-144" positionY="297" width="128" height="178"/>
+        <element name="ContentContents" positionX="-407" positionY="440" width="128" height="73"/>
+        <element name="Contents" positionX="-585" positionY="9" width="128" height="540"/>
+        <element name="InFocus_Items" positionX="-360" positionY="153" width="128" height="120"/>
+        <element name="LeadingNews" positionX="432" positionY="9" width="128" height="525"/>
+        <element name="MasterContentCategory" positionX="-362" positionY="9" width="128" height="75"/>
+        <element name="RelatedStoryAndTimeline" positionX="286" positionY="9" width="128" height="555"/>
+    </elements>
+</model>

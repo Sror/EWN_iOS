@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ADTECHConfig</key>
+	<dict>
+		<key>Schema</key>
+		<string>http</string>
+		<key>Domain</key>
+		<string>a.adtech.de</string>
+		<key>Port</key>
+		<integer>0</integer>
+		<key>NetworkID</key>
+		<integer>23</integer>
+		<key>SubNetworkID</key>
+		<integer>4</integer>
+		<key>HostApplicationName</key>
+		<string>ADTECHSample</string>
+		<key>OpenLandingPagesThroughBrowser</key>
+		<true/>
+		<key>AllowLocationServices</key>
+		<false/>
+	</dict>
+</dict>
+</plist>

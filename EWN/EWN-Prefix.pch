@@ -1,0 +1,43 @@
+//
+// Prefix header for all source files of the 'EWN' target in the 'EWN' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_4_0
+#warning "This project uses features only available in iOS SDK 4.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import "WebserviceComunication.h"
+    #import <CoreData/CoreData.h>   
+    #import "CommonUtilities.h"
+    #import "CacheDataManager.h"
+    #import "Flurry.h"
+    #import "UIImageView+Extended.h"
+    #import <ADTECHMobileSDK/ADTECHMobileSDK.h>
+    #import "PDBackgroundTaskManager.h"
+    #import "UIColor+Expanded.h"
+#endif
+
+
+
+
+
+
+// DLog will output like NSLog only when the DEBUG variable is set
+#ifdef DEBUG
+#   define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#   define DLog(...)
+#endif
+
+
+// ULog will show the UIAlertView only when the DEBUG variable is set
+#ifdef DEBUG
+#   define ULog(fmt, ...)  { UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"%s\n [Line %d] ", __PRETTY_FUNCTION__, __LINE__] message:[NSString stringWithFormat:fmt, ##__VA_ARGS__]  delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil]; [alert show]; }
+#else
+#   define ULog(...)
+#endif

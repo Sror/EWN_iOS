@@ -1,0 +1,1253 @@
+[
+    {
+      "name": "aboutMe",
+      "type": "string",
+      "case-sensitive": false
+    },
+    {
+      "name": "currentLocation",
+      "type": "string",
+      "length": 1000,
+      "case-sensitive": false
+    },
+    {
+      "name": "display", "type": "json"
+    },
+    {
+        "name": "photos",
+        "type": "plural",
+        "attr_defs": [
+          {
+            "name": "type",
+            "type": "string"
+          },
+          {
+            "name": "value",
+            "type": "string"
+          }
+        ]
+    },
+    {
+        "name": "displayName",
+        "type": "string",
+        "length": 1000,
+        "case-sensitive": false,
+        "description": "The name of this Contact, suitable for display to end-users.",
+        "features": [ "query" ]
+    },
+    {
+        "constraints": [
+          "unique"
+        ],
+        "name": "email",
+        "type": "string",
+        "length": 256,
+        "case-sensitive": false
+    },
+    {
+        "name": "emailVerified",
+        "type": "dateTime"
+    },
+    {
+        "name": "password",
+        "type": "password-bcrypt"
+    },
+    {
+        "name": "lastLogin",
+        "type": "dateTime"
+    },
+    {
+        "constraints": [
+            "unicode-printable"
+        ],
+        "name": "givenName",
+        "type": "string",
+        "length": 1000,
+        "case-sensitive": false
+    },
+    {
+        "constraints": [
+            "unicode-printable"
+        ],
+        "name": "middleName",
+        "type": "string",
+        "length": 1000,
+        "case-sensitive": false
+    },
+    {
+        "constraints": [
+            "unicode-printable"
+        ],
+        "name": "familyName",
+        "type": "string",
+        "length": 1000,
+        "case-sensitive": false
+    },
+    {
+        "name": "gender",
+        "type": "string",
+        "length": 100,
+        "case-sensitive": false
+    },
+    {
+        "name": "birthday",
+        "type": "date"
+    },
+    {
+        "attr_defs": [
+            {
+                "constraints": [
+                    "unicode-printable"
+                ],
+                "name": "company",
+                "type": "string",
+                "length": 1000,
+                "case-sensitive": false
+            },
+            {
+                "constraints": [
+                    "unicode-printable"
+                ],
+                "name": "address1",
+                "type": "string",
+                "length": 1000,
+                "case-sensitive": false
+            },
+            {
+                "constraints": [
+                    "unicode-printable"
+                ],
+                "name": "address2",
+                "type": "string",
+                "length": 1000,
+                "case-sensitive": false
+            },
+            {
+                "constraints": [
+                    "unicode-printable"
+                ],
+                "name": "city",
+                "type": "string",
+                "length": 1000,
+                "case-sensitive": false
+            },
+            {
+                "constraints": [
+                    "unicode-printable"
+                ],
+                "name": "stateAbbreviation",
+                "type": "string",
+                "length": 100,
+                "case-sensitive": false
+            },
+            {
+                "constraints": [
+                    "unicode-printable"
+                ],
+                "name": "zip",
+                "type": "string",
+                "length": 100,
+                "case-sensitive": false
+            },
+            {
+                "constraints": [
+                    "unicode-printable"
+                ],
+                "name": "zipPlus4",
+                "type": "string",
+                "length": 100,
+                "case-sensitive": false
+            },
+            {
+                "constraints": [
+                    "unicode-printable"
+                ],
+                "name": "country",
+                "type": "string",
+                "length": 1000,
+                "case-sensitive": false
+            },
+            {
+                "constraints": [
+                    "unicode-printable"
+                ],
+                "name": "phone",
+                "type": "string",
+                "length": 100,
+                "case-sensitive": false
+            },
+            {
+                "constraints": [
+                    "unicode-printable"
+                ],
+                "name": "mobile",
+                "type": "string",
+                "length": 100,
+                "case-sensitive": false
+            }
+        ],
+        "name": "primaryAddress",
+        "type": "object"
+    },
+    {
+        "attr_defs": [
+            {
+                "name": "status",
+                "type": "string",
+                "length": 1000,
+                "case-sensitive": false
+            },
+            {
+                "name": "statusCreated",
+                "type": "dateTime"
+            }
+        ],
+        "name": "statuses",
+        "type": "plural"
+    },
+    {
+        "name": "profiles",
+        "type": "plural",
+        "attr_defs": [
+            {
+                "name": "identifier",
+                "type": "string",
+                "length": 1000,
+                "case-sensitive": false,
+                "constraints": [
+                    "required",
+                    "unique"
+                ],
+                "description": "Profile provider unique identifier"
+            },
+            {
+                "name": "domain",
+                "type": "string",
+                "length": 1000,
+                "case-sensitive": false,
+                "constraints": [
+                    "required"
+                ]
+            },
+            {
+                "name": "provider",
+                "type": "json",
+                "description": "Provider for this profile"
+            },
+            {
+                "name": "remote_key",
+                "type": "string",
+                "length": 4096,
+                "description": "primaryKey field from Engage"
+            },
+            {
+                "name": "accessCredentials",
+                "type": "json",
+                "description": "User's authorization credentials for this provider"
+            },
+            {
+                "name": "friends",
+                "type": "plural",
+                "attr_defs": [
+                    {
+                        "name": "identifier",
+                        "type": "string",
+                        "constraints": ["required"]
+                    }
+                ],
+                "description": "User's friends"
+            },
+            {
+                "name": "following",
+                "type": "plural",
+                "attr_defs": [
+                    {
+                        "name": "identifier",
+                        "type": "string",
+                        "constraints": ["required"]
+                    }
+                ],
+                "description": "who the user is following"
+            },
+            {
+                "name": "followers",
+                "type": "plural",
+                "attr_defs": [
+                    {
+                        "name": "identifier",
+                        "type": "string",
+                        "constraints": ["required"]
+                    }
+                ],
+                "description": "User's followers"
+            },
+            {
+                "name": "profile",
+                "type": "object",
+                "attr_defs": [
+                    {
+                        "name": "displayName",
+                        "type": "string",
+                        "length": 1000,
+                        "case-sensitive": true,
+                        "description": "The name of this Contact, suitable for display to end-users."
+                    },
+                    {
+                        "name": "name",
+                        "type": "object",
+                        "attr_defs": [
+                            {
+                                "name": "formatted",
+                                "type": "string",
+                                "length": 1000,
+                                "case-sensitive": false,
+                                "description": "The full name, including all middle names, titles, and suffixes as appropriate, formatted for display"
+                            },
+                            {
+                                "name": "familyName",
+                                "type": "string",
+                                "length": 1000,
+                                "case-sensitive": false,
+                                "description": "The family name of this Contact, or 'Last Name' in most Western languages"
+                            },
+                            {
+                                "name": "givenName",
+                                "type": "string",
+                                "length": 1000,
+                                "case-sensitive": false,
+                                "description": "The given name of this Contact, or 'First Name' in most Western languages"
+                            },
+                            {
+                                "name": "middleName",
+                                "type": "string",
+                                "length": 1000,
+                                "case-sensitive": false,
+                                "description": "The middle name(s) of this Contact"
+                            },
+                            {
+                                "name": "honorificPrefix",
+                                "type": "string",
+                                "length": null,
+                                "case-sensitive": false,
+                                "description": "The honorific prefix(es) of this Contact, or 'Title' in most Western languages"
+                            },
+                            {
+                                "name": "honorificSuffix",
+                                "type": "string",
+                                "length": null,
+                                "case-sensitive": false,
+                                "description": "The honorific suffix(es) of this Contact, or 'Suffix' in most Western languages"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "nickname",
+                        "type": "string",
+                        "length": 1000,
+                        "case-sensitive": false,
+                        "description": "The casual way to address this Contact in real life"
+                    },
+                    {
+                        "name": "published",
+                        "type": "dateTime",
+                        "description": "The date this Contact was first added to the user's address book or friends list."
+                    },
+                    {
+                        "name": "updated",
+                        "type": "dateTime",
+                        "description": "The most recent date the details of this Contact were updated."
+                    },
+                    {
+                        "name": "birthday",
+                        "type": "string",
+                        "length": 100,
+                        "case-sensitive": false,
+                        "description": "The birthday of this contact."
+                    },
+                    {
+                        "name": "anniversary",
+                        "type": "date",
+                        "description": "The wedding anniversary of this contact."
+                    },
+                    {
+                        "name": "gender",
+                        "type": "string",
+                        "length": 100,
+                        "case-sensitive": false,
+                        "description": "The gender of this contact."
+                    },
+                    {
+                        "name": "preferredUsername",
+                        "type": "string",
+                        "length": 1000,
+                        "case-sensitive": true,
+                        "features": ["query"],
+                        "description": "The preferred username of this contact on sites that ask for a username."
+                    },
+                    {
+                        "name": "utcOffset",
+                        "type": "string",
+                        "length": null,
+                        "case-sensitive": false,
+                        "description": "The offset from UTC of this Contact's current time zone."
+                    },
+                    {
+                        "attr_defs": [
+                            {
+                                "name": "value",
+                                "type": "string",
+                                "length": 256,
+                                "case-sensitive": false
+                            },
+                            {
+                                "name": "type",
+                                "type": "string",
+                                "length": 256,
+                                "case-sensitive": false
+                            },
+                            {
+                                "name": "primary",
+                                "type": "boolean"
+                            }
+                        ],
+                        "name": "emails",
+                        "type": "plural",
+                        "description": "E-mail address for this Contact."
+                    },
+                    {
+                        "attr_defs": [
+                            {
+                                "name": "value",
+                                "type": "string",
+                                "length": null,
+                                "case-sensitive": false
+                            },
+                            {
+                                "name": "type",
+                                "type": "string",
+                                "length": 1000,
+                                "case-sensitive": false
+                            },
+                            {
+                                "name": "primary",
+                                "type": "boolean"
+                            }
+                        ],
+                        "name": "urls",
+                        "type": "plural",
+                        "description": "URL of a web page relating to this Contact."
+                    },
+                    {
+                        "attr_defs": [
+                            {
+                                "name": "value",
+                                "type": "string",
+                                "length": null,
+                                "case-sensitive": false
+                            },
+                            {
+                                "name": "type",
+                                "type": "string",
+                                "length": null,
+                                "case-sensitive": false
+                            },
+                            {
+                                "name": "primary",
+                                "type": "boolean"
+                            }
+                        ],
+                        "name": "phoneNumbers",
+                        "type": "plural",
+                        "description": "Phone number for this Contact."
+                    },
+                    {
+                        "attr_defs": [
+                            {
+                                "name": "value",
+                                "type": "string",
+                                "length": null,
+                                "case-sensitive": false
+                            },
+                            {
+                                "name": "type",
+                                "type": "string",
+                                "length": 1000,
+                                "case-sensitive": false
+                            },
+                            {
+                                "name": "primary",
+                                "type": "boolean"
+                            }
+                        ],
+                        "name": "ims",
+                        "type": "plural",
+                        "description": "Instant messaging address for this Contact."
+                    },
+                    {
+                        "attr_defs": [
+                            {
+                                "name": "value",
+                                "type": "string",
+                                "length": null,
+                                "case-sensitive": false
+                            },
+                            {
+                                "name": "type",
+                                "type": "string",
+                                "length": null,
+                                "case-sensitive": false
+                            },
+                            {
+                                "name": "primary",
+                                "type": "boolean"
+                            }
+                        ],
+                        "name": "photos",
+                        "type": "plural",
+                        "description": "URL of a photo of this contact."
+                    },
+                    {
+                        "name": "tags",
+                        "type": "plural",
+                        "attr_defs": [
+                            {
+                                "name": "tag",
+                                "type": "string",
+                                "length": 1000,
+                                "case-sensitive": false
+                            }
+                        ],
+                        "description": "A user-defined category or label for this contact."
+                    },
+                    {
+                        "name": "relationships",
+                        "type": "plural",
+                        "attr_defs": [
+                            {
+                                "name": "relationship",
+                                "type": "string",
+                                "length": 1000,
+                                "case-sensitive": false
+                            }
+                        ],
+                        "description": "A bi-directionally asserted relationship type that was established between the user and this contact by the Service Provider."
+                    },
+                    {
+                        "attr_defs": [
+                            {
+                                "name": "formatted",
+                                "type": "string",
+                                "length": null,
+                                "case-sensitive": false,
+                                "description": "The full mailing address, formatted for display or use with a mailing label."
+                            },
+                            {
+                                "name": "streetAddress",
+                                "type": "string",
+                                "length": 1000,
+                                "case-sensitive": false,
+                                "description": "The full street address component, which may include house number, street name, PO BOX, and multi-line extended street address information."
+                            },
+                            {
+                                "name": "extendedAddress",
+                                "type": "string",
+                                "length": 1000,
+                                "case-sensitive": false
+                            },
+                            {
+                                "name": "locality",
+                                "type": "string",
+                                "length": 1000,
+                                "case-sensitive": false,
+                                "description": "The city or locality component."
+                            },
+                            {
+                                "name": "region",
+                                "type": "string",
+                                "length": 1000,
+                                "case-sensitive": false,
+                                "description": "The state or region component."
+                            },
+                            {
+                                "name": "postalCode",
+                                "type": "string",
+                                "length": 100,
+                                "case-sensitive": false,
+                                "description": "The zipcode or postal code component."
+                            },
+                            {
+                                "name": "poBox",
+                                "type": "string",
+                                "length": 100,
+                                "case-sensitive": false
+                            },
+                            {
+                                "name": "country",
+                                "type": "string",
+                                "length": 1000,
+                                "case-sensitive": false,
+                                "description": "The country name component."
+                            },
+                            {
+                                "name": "longitude",
+                                "type": "decimal"
+                            },
+                            {
+                                "name": "latitude",
+                                "type": "decimal"
+                            },
+                            {
+                                "name": "type",
+                                "type": "string",
+                                "length": 1000,
+                                "case-sensitive": false
+                            },
+                            {
+                                "name": "primary",
+                                "type": "boolean"
+                            }
+                        ],
+                        "name": "addresses",
+                        "type": "plural",
+                        "description": "A physical mailing address for this Contact."
+                    },
+                    {
+                        "attr_defs": [
+                            {
+                                "name": "department",
+                                "type": "string",
+                                "length": 1000,
+                                "case-sensitive": false,
+                                "description": "The department within this organization."
+                            },
+                            {
+                                "name": "description",
+                                "type": "string",
+                                "length": 1000,
+                                "case-sensitive": false,
+                                "description": "A textual description of the role this Contact played in this organization."
+                            },
+                            {
+                                "name": "endDate",
+                                "type": "string",
+                                "length": null,
+                                "case-sensitive": false,
+                                "description": "The date this Contact left this organization or the role specified by title within this organization."
+                            },
+                            {
+                                "attr_defs": [
+                                    {
+                                        "name": "formatted",
+                                        "type": "string",
+                                        "length": null,
+                                        "case-sensitive": false
+                                    },
+                                    {
+                                        "name": "streetAddress",
+                                        "type": "string",
+                                        "length": 1000,
+                                        "case-sensitive": false
+                                    },
+                                    {
+                                        "name": "extendedAddress",
+                                        "type": "string",
+                                        "length": 1000,
+                                        "case-sensitive": false
+                                    },
+                                    {
+                                        "name": "locality",
+                                        "type": "string",
+                                        "length": 1000,
+                                        "case-sensitive": false
+                                    },
+                                    {
+                                        "name": "region",
+                                        "type": "string",
+                                        "length": 1000,
+                                        "case-sensitive": false
+                                    },
+                                    {
+                                        "name": "postalCode",
+                                        "type": "string",
+                                        "length": 100,
+                                        "case-sensitive": false
+                                    },
+                                    {
+                                        "name": "poBox",
+                                        "type": "string",
+                                        "length": 1000,
+                                        "case-sensitive": false
+                                    },
+                                    {
+                                        "name": "country",
+                                        "type": "string",
+                                        "length": 1000,
+                                        "case-sensitive": false
+                                    },
+                                    {
+                                        "name": "longitude",
+                                        "type": "decimal"
+                                    },
+                                    {
+                                        "name": "latitude",
+                                        "type": "decimal"
+                                    },
+                                    {
+                                        "name": "type",
+                                        "type": "string",
+                                        "length": 1000,
+                                        "case-sensitive": false
+                                    }
+                                ],
+                                "name": "location",
+                                "type": "object"
+                            },
+                            {
+                                "name": "name",
+                                "type": "string",
+                                "length": 1000,
+                                "case-sensitive": false,
+                                "description": "The name of the organization."
+                            },
+                            {
+                                "name": "startDate",
+                                "type": "string",
+                                "length": null,
+                                "case-sensitive": false,
+                                "description": "The date this Contact joined this organization."
+                            },
+                            {
+                                "name": "type",
+                                "type": "string",
+                                "length": null,
+                                "case-sensitive": false,
+                                "description": "The type of organization, with Canonical Values 'job' and 'school'."
+                            },
+                            {
+                                "name": "title",
+                                "type": "string",
+                                "length": 1000,
+                                "case-sensitive": false,
+                                "description": "The job title or role within this organization."
+                            },
+                            {
+                                "name": "primary",
+                                "type": "boolean"
+                            }
+                        ],
+                        "name": "organizations",
+                        "type": "plural",
+                        "description": "Describes a current or past organizational affiliation of this contact."
+                    },
+                    {
+                        "attr_defs": [
+                            {
+                                "name": "domain",
+                                "type": "string",
+                                "length": 1000,
+                                "case-sensitive": false,
+                                "description": "The top-most authoritative domain for this account."
+                            },
+                            {
+                                "name": "userid",
+                                "type": "string",
+                                "length": 1000,
+                                "case-sensitive": false,
+                                "description": "A user ID number, usually chosen automatically, and usually numeric but sometimes alphanumeric."
+                            },
+                            {
+                                "name": "username",
+                                "type": "string",
+                                "length": 1000,
+                                "case-sensitive": true,
+                                "description": "An alphanumeric user name, usually chosen by the user."
+                            },
+                            {
+                                "name": "primary",
+                                "type": "boolean"
+                            }
+                        ],
+                        "name": "accounts",
+                        "type": "plural",
+                        "description": "Describes an account held by this Contact, which MAY be on the Service Provider's service, or MAY be on a different service."
+                    },
+                    {
+                        "name": "aboutMe",
+                        "type": "string",
+                        "length": null,
+                        "case-sensitive": false,
+                        "description": "A general statement about the person."
+                    },
+                    {
+                        "attr_defs": [
+                            {
+                                "name": "build",
+                                "type": "string",
+                                "length": 100,
+                                "case-sensitive": false
+                            },
+                            {
+                                "name": "eyeColor",
+                                "type": "string",
+                                "length": 100,
+                                "case-sensitive": false
+                            },
+                            {
+                                "name": "hairColor",
+                                "type": "string",
+                                "length": 100,
+                                "case-sensitive": false
+                            },
+                            {
+                                "name": "height",
+                                "type": "decimal"
+                            },
+                            {
+                                "name": "color",
+                                "type": "string",
+                                "length": 100,
+                                "case-sensitive": false
+                            }
+                        ],
+                        "name": "bodyType",
+                        "type": "object",
+                        "description": "Person's body characteristics."
+                    },
+                    {
+                        "attr_defs": [
+                            {
+                                "name": "formatted",
+                                "type": "string",
+                                "length": 1000,
+                                "case-sensitive": false
+                            },
+                            {
+                                "name": "streetAddress",
+                                "type": "string",
+                                "length": 1000,
+                                "case-sensitive": false
+                            },
+                            {
+                                "name": "extendedAddress",
+                                "type": "string",
+                                "length": 1000,
+                                "case-sensitive": false
+                            },
+                            {
+                                "name": "locality",
+                                "type": "string",
+                                "length": 1000,
+                                "case-sensitive": false
+                            },
+                            {
+                                "name": "region",
+                                "type": "string",
+                                "length": 1000,
+                                "case-sensitive": false
+                            },
+                            {
+                                "name": "postalCode",
+                                "type": "string",
+                                "length": 100,
+                                "case-sensitive": false
+                            },
+                            {
+                                "name": "poBox",
+                                "type": "string",
+                                "length": 1000,
+                                "case-sensitive": false
+                            },
+                            {
+                                "name": "country",
+                                "type": "string",
+                                "length": 1000,
+                                "case-sensitive": false
+                            },
+                            {
+                                "name": "longitude",
+                                "type": "decimal"
+                            },
+                            {
+                                "name": "latitude",
+                                "type": "decimal"
+                            },
+                            {
+                                "name": "type",
+                                "type": "string",
+                                "length": null,
+                                "case-sensitive": false
+                            }
+                        ],
+                        "name": "currentLocation",
+                        "type": "object"
+                    },
+                    {
+                        "name": "ethnicity",
+                        "type": "string",
+                        "length": 1000,
+                        "case-sensitive": false,
+                        "description": "Person's ethnicity."
+                    },
+                    {
+                        "name": "fashion",
+                        "type": "string",
+                        "length": null,
+                        "case-sensitive": false,
+                        "description": "Person's thoughts on fashion."
+                    },
+                    {
+                        "name": "happiestWhen",
+                        "type": "string",
+                        "length": null,
+                        "case-sensitive": false,
+                        "description": "Describes when the person is happiest."
+                    },
+                    {
+                        "name": "humor",
+                        "type": "string",
+                        "length": null,
+                        "case-sensitive": false,
+                        "description": "Person's thoughts on humor."
+                    },
+                    {
+                        "name": "note",
+                        "type": "string",
+                        "length": null,
+                        "case-sensitive": false,
+                        "description": "Notes about this person, with an unspecified meaning or usage."
+                    },
+                    {
+                        "name": "livingArrangement",
+                        "type": "string",
+                        "length": null,
+                        "case-sensitive": false,
+                        "description": "Description of the person's living arrangement."
+                    },
+                    {
+                        "name": "lookingFor",
+                        "type": "plural",
+                        "attr_defs": [
+                            {
+                                "name": "value",
+                                "type": "string",
+                                "length": null,
+                                "case-sensitive": false
+                            }
+                        ],
+                        "description": "Person's statement about who or what they are looking for, or what they are interested in meeting people for."
+                    },
+                    {
+                        "name": "profileUrl",
+                        "type": "string",
+                        "length": null,
+                        "case-sensitive": false,
+                        "description": "Person's profile URL, specified as a string."
+                    },
+                    {
+                        "name": "profileSong",
+                        "type": "string",
+                        "length": null,
+                        "case-sensitive": false,
+                        "description": "URL of a person's profile song."
+                    },
+                    {
+                        "name": "profileVideo",
+                        "type": "string",
+                        "length": 1000,
+                        "case-sensitive": false,
+                        "description": "URL of a person's profile video."
+                    },
+                    {
+                        "name": "relationshipStatus",
+                        "type": "string",
+                        "length": 1000,
+                        "case-sensitive": false,
+                        "description": "Person's relationship status."
+                    },
+                    {
+                        "name": "religion",
+                        "type": "string",
+                        "length": null,
+                        "case-sensitive": false,
+                        "description": "Person's religion or religious views."
+                    },
+                    {
+                        "name": "romance",
+                        "type": "string",
+                        "length": null,
+                        "case-sensitive": false,
+                        "description": "Person's comments about romance."
+                    },
+                    {
+                        "name": "scaredOf",
+                        "type": "string",
+                        "length": null,
+                        "case-sensitive": false,
+                        "description": "What the person is scared of."
+                    },
+                    {
+                        "name": "sexualOrientation",
+                        "type": "string",
+                        "length": null,
+                        "case-sensitive": false,
+                        "description": "Person's sexual orientation."
+                    },
+                    {
+                        "name": "status",
+                        "type": "string",
+                        "length": 1000,
+                        "case-sensitive": false,
+                        "description": "Person's status, headline or shout-out."
+                    },
+                    {
+                        "name": "drinker",
+                        "type": "string",
+                        "length": null,
+                        "case-sensitive": false,
+                        "description": "Person's drinking status."
+                    },
+                    {
+                        "name": "smoker",
+                        "type": "string",
+                        "length": null,
+                        "case-sensitive": false,
+                        "description": "Person's smoking status."
+                    },
+                    {
+                        "name": "books",
+                        "type": "plural",
+                        "attr_defs": [
+                            {
+                                "name": "book",
+                                "type": "string",
+                                "length": null,
+                                "case-sensitive": false
+                            }
+                        ],
+                        "description": "Person's favorite books."
+                    },
+                    {
+                        "name": "cars",
+                        "type": "plural",
+                        "attr_defs": [
+                            {
+                                "name": "car",
+                                "type": "string",
+                                "length": null,
+                                "case-sensitive": false
+                            }
+                        ],
+                        "description": "Person's favorite cars."
+                    },
+                    {
+                        "name": "children",
+                        "type": "plural",
+                        "attr_defs": [
+                            {
+                                "name": "value",
+                                "type": "string",
+                                "length": null,
+                                "case-sensitive": false
+                            }
+                        ],
+                        "description": "Description of the person's children."
+                    },
+                    {
+                        "name": "food",
+                        "type": "plural",
+                        "attr_defs": [
+                            {
+                                "name": "food",
+                                "type": "string",
+                                "length": null,
+                                "case-sensitive": false
+                            }
+                        ],
+                        "description": "Person's favorite food."
+                    },
+                    {
+                        "name": "heroes",
+                        "type": "plural",
+                        "attr_defs": [
+                            {
+                                "name": "hero",
+                                "type": "string",
+                                "length": null,
+                                "case-sensitive": false
+                            }
+                        ],
+                        "description": "Person's favorite heroes."
+                    },
+                    {
+                        "name": "interests",
+                        "type": "plural",
+                        "attr_defs": [
+                            {
+                                "name": "interest",
+                                "type": "string",
+                                "length": null,
+                                "case-sensitive": false
+                            }
+                        ],
+                        "description": "Person's interests, hobbies or passions."
+                    },
+                    {
+                        "name": "jobInterests",
+                        "type": "plural",
+                        "attr_defs": [
+                            {
+                                "name": "jobInterest",
+                                "type": "string",
+                                "length": null,
+                                "case-sensitive": false
+                            }
+                        ],
+                        "description": "Person's favorite jobs, or job interests and skills."
+                    },
+                    {
+                        "name": "languages",
+                        "type": "plural",
+                        "attr_defs": [
+                            {
+                                "name": "language",
+                                "type": "string",
+                                "length": null,
+                                "case-sensitive": false
+                            }
+                        ]
+                    },
+                    {
+                        "name": "languagesSpoken",
+                        "type": "plural",
+                        "attr_defs": [
+                            {
+                                "name": "languageSpoken",
+                                "type": "string",
+                                "length": null,
+                                "case-sensitive": false
+                            }
+                        ],
+                        "description": "List of the languages that the person speaks as ISO 639-1 codes."
+                    },
+                    {
+                        "name": "movies",
+                        "type": "plural",
+                        "attr_defs": [
+                            {
+                                "name": "movie",
+                                "type": "string",
+                                "length": null,
+                                "case-sensitive": false
+                            }
+                        ],
+                        "description": "Person's favorite movies."
+                    },
+                    {
+                        "name": "music",
+                        "type": "plural",
+                        "attr_defs": [
+                            {
+                                "name": "music",
+                                "type": "string",
+                                "length": null,
+                                "case-sensitive": false
+                            }
+                        ],
+                        "description": "Person's favorite music."
+                    },
+                    {
+                        "name": "pets",
+                        "type": "plural",
+                        "attr_defs": [
+                            {
+                                "name": "value",
+                                "type": "string",
+                                "length": null,
+                                "case-sensitive": false
+                            }
+                        ],
+                        "description": "Description of the person's pets"
+                    },
+                    {
+                        "name": "politicalViews",
+                        "type": "string",
+                        "length": null,
+                        "case-sensitive": false,
+                        "description": "Person's political views."
+                    },
+                    {
+                        "name": "quotes",
+                        "type": "plural",
+                        "attr_defs": [
+                            {
+                                "name": "quote",
+                                "type": "string",
+                                "length": null,
+                                "case-sensitive": false
+                            }
+                        ],
+                        "description": "Person's favorite quotes"
+                    },
+                    {
+                        "name": "sports",
+                        "type": "plural",
+                        "attr_defs": [
+                            {
+                                "name": "sport",
+                                "type": "string",
+                                "length": null,
+                                "case-sensitive": false
+                            }
+                        ],
+                        "description": "Person's favorite sports"
+                    },
+                    {
+                        "name": "turnOffs",
+                        "type": "plural",
+                        "attr_defs": [
+                            {
+                                "name": "turnOff",
+                                "type": "string",
+                                "length": null,
+                                "case-sensitive": false
+                            }
+                        ],
+                        "description": "Person's turn offs."
+                    },
+                    {
+                        "name": "turnOns",
+                        "type": "plural",
+                        "attr_defs": [
+                            {
+                                "name": "turnOn",
+                                "type": "string",
+                                "length": null,
+                                "case-sensitive": false
+                            }
+                        ],
+                        "description": "Person's turn ons."
+                    },
+                    {
+                        "name": "interestedInMeeting",
+                        "type": "string",
+                        "length": null,
+                        "case-sensitive": false
+                    },
+                    {
+                        "name": "tvShows",
+                        "type": "plural",
+                        "attr_defs": [
+                            {
+                                "name": "tvShow",
+                                "type": "string",
+                                "length": null,
+                                "case-sensitive": false
+                            }
+                        ],
+                        "description": "Person's favorite TV shows."
+                    }
+                ]
+            }
+        ]
+    }
+]

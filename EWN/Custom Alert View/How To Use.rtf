@@ -1,0 +1,12 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf360
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0\fs24 \cf0  CustomAlertView *alert = [[CustomAlertView alloc] initWithNibName:@"CustomAlertView" bundle:nil];\
+                    [alert show:YES ShowDetail:YES NumberOfButtons:1];\
+                    alert.lblHeading.text=[NSString stringWithFormat:@"Add Caller"];\
+                    alert.lblDetail.text=[NSString stringWithFormat:@"Invalid number, please correct and try your call again."];\
+                    [alert.btn1 setImage:[UIImage imageNamed:@"eVoice_edit_btn.png"] forState:UIControlStateNormal];\
+                    [alert release];}

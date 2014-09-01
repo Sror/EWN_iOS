@@ -1,0 +1,22 @@
+[
+  {
+    "name": "id",
+    "description": "simple identifier for this entity",
+    "type": "id"
+  },
+  {
+    "name": "uuid",
+    "description": "globally unique indentifier for this entity",
+    "type": "uuid"
+  },
+  {
+    "name": "created",
+    "description": "when this entity was created",
+    "type": "dateTime"
+  },
+  {
+    "name": "lastUpdated",
+    "description": "when this entity was last updated",
+    "type": "dateTime"
+  }
+]
